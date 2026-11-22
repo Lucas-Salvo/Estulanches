@@ -3,6 +3,9 @@
 Sistema de cardápio e pedidos da cantina escolar.
 **Stack:** Node.js + Express · Prisma 7.8.0 + @prisma/adapter-pg (PostgreSQL) · JWT em cookie (jsonwebtoken + cookie-parser) · bcryptjs · cors · nodemon · Jest + Supertest · Docker.
 
+
+## 🎥 Vídeo de apresentação
+[Assistir ao vídeo](https://drive.google.com/file/d/1MiCZ5Y0LH5cpEzbxQdOWTwcxSG1pzv9L/view?usp=sharing)
 ---
 
 ## 📁 Estrutura
