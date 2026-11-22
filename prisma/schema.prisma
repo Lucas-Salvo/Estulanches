@@ -1,0 +1,62 @@
+// Schema do banco de dados do EstuLanches
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  CLIENTE
+}
+
+enum StatusPedido {
+  PENDENTE
+  PREPARANDO
+  PRONTO
+  ENTREGUE
+  CANCELADO
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String
+  role      Role     @default(CLIENTE)
+  pedidos   Pedido[]
+  criadoEm  DateTime @default(now())
+}
+
+model Produto {
+  id         Int          @id @default(autoincrement())
+  nome       String
+  descricao  String?
+  preco      Decimal      @db.Decimal(10, 2)
+  categoria  String       @default("Lanche")
+  disponivel Boolean      @default(true)
+  itens      ItemPedido[]
+  criadoEm   DateTime     @default(now())
+}
+
+model Pedido {
+  id        Int          @id @default(autoincrement())
+  usuario   Usuario      @relation(fields: [usuarioId], references: [id])
+  usuarioId Int
+  status    StatusPedido @default(PENDENTE)
+  total     Decimal      @db.Decimal(10, 2)
+  itens     ItemPedido[]
+  criadoEm  DateTime     @default(now())
+}
+
+model ItemPedido {
+  id         Int     @id @default(autoincrement())
+  pedido     Pedido  @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
+  pedidoId   Int
+  produto    Produto @relation(fields: [produtoId], references: [id])
+  produtoId  Int
+  quantidade Int
+  precoUnit  Decimal @db.Decimal(10, 2)
+}

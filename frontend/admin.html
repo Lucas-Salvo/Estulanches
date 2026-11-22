@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EstuLanches - Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🍔 EstuLanches — Admin</h1>
+    <div><a href="index.html">Voltar ao cardápio</a></div>
+  </header>
+
+  <section class="card">
+    <h2>Novo produto</h2>
+    <input id="pNome" placeholder="Nome" />
+    <input id="pDescricao" placeholder="Descrição" />
+    <input id="pPreco" type="number" step="0.01" placeholder="Preço" />
+    <input id="pCategoria" placeholder="Categoria (Lanche, Bebida...)" />
+    <button onclick="criarProduto()">Salvar</button>
+    <p id="msgProduto" class="erro"></p>
+  </section>
+
+  <section>
+    <h2>Produtos</h2>
+    <table><thead><tr><th>Nome</th><th>Preço</th><th>Disponível</th><th></th></tr></thead>
+      <tbody id="tabelaProdutos"></tbody></table>
+  </section>
+
+  <section>
+    <h2>Pedidos</h2>
+    <div id="pedidosAdmin"></div>
+  </section>
+
+  <script src="admin.js"></script>
+</body>
+</html>

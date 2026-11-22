@@ -1,0 +1,7 @@
+require('dotenv').config({ quiet: true });
+const app = require('./app');
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`[EstuLanches] Servidor rodando na porta ${PORT} (${process.env.NODE_ENV || 'development'})`);
+});

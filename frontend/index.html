@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EstuLanches</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🍔 EstuLanches</h1>
+    <div id="usuarioInfo"></div>
+  </header>
+
+  <!-- Login / Cadastro -->
+  <section id="secLogin" class="card">
+    <h2>Entrar</h2>
+    <input id="email" placeholder="Email" />
+    <input id="senha" type="password" placeholder="Senha" />
+    <input id="nome" placeholder="Nome (só para cadastro)" />
+    <button onclick="entrar()">Entrar</button>
+    <button class="sec" onclick="cadastrar()">Cadastrar</button>
+    <p id="msgLogin" class="erro"></p>
+  </section>
+
+  <!-- Cardápio -->
+  <section>
+    <h2>Cardápio</h2>
+    <div id="cardapio" class="grid"></div>
+  </section>
+
+  <!-- Carrinho -->
+  <section id="secCarrinho" class="card oculto">
+    <h2>Carrinho</h2>
+    <ul id="carrinho"></ul>
+    <p><b>Total: R$ <span id="total">0.00</span></b></p>
+    <button onclick="finalizarPedido()">Finalizar pedido</button>
+    <p id="msgPedido"></p>
+  </section>
+
+  <!-- Meus pedidos -->
+  <section id="secPedidos" class="oculto">
+    <h2>Meus pedidos</h2>
+    <div id="pedidos"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
